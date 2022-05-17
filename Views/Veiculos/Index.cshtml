@@ -1,0 +1,46 @@
+﻿@model IEnumerable<testeBlueFleet.Models.Veiculo>
+
+@{
+    ViewData["Title"] = "Veiculos";
+}
+
+<p>
+    <a asp-action="NovoVeiculo">Novo Veículo</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Montadora)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Montadora)
+            </td>
+            <td>
+                <a asp-action="AtualizarVeiculo" asp-route-veiculoID="@item.VeiculoId">Atualizar</a>
+                <form asp-action="ExcluirVeiculo" asp-route-veiculoID="@item.VeiculoId">
+                    <button type="submit" class="btn btn-outline-danger">Excluir</button>
+                </form>  
+            </td>
+        </tr>}
+    </tbody>
+</table>
