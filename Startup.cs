@@ -19,7 +19,7 @@ namespace testeBlueFleet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            /* FAZENDO A CONEXÃO COM O MONGODB */
             services.Configure<ConfigDB>(opcoes =>
             {
                 opcoes.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
